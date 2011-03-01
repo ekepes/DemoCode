@@ -52,18 +52,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core">
-      <HintPath>..\..\..\MassTransit\lib\Castle.Windsor\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.DynamicProxy2">
-      <HintPath>..\..\..\MassTransit\lib\Castle.Windsor\Castle.DynamicProxy2.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.MicroKernel">
-      <HintPath>..\..\..\MassTransit\lib\Castle.Windsor\Castle.MicroKernel.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Windsor">
-      <HintPath>..\..\..\MassTransit\lib\Castle.Windsor\Castle.Windsor.dll</HintPath>
-    </Reference>
     <Reference Include="log4net">
       <HintPath>..\..\..\MassTransit\lib\log4net.dll</HintPath>
     </Reference>
@@ -89,9 +77,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MassTransit\src\Containers\MassTransit.WindsorIntegration\MassTransit.WindsorIntegration.csproj">
-      <Project>{98D5A59C-96FA-4A1B-A653-EA5A35C45FC9}</Project>
-      <Name>MassTransit.WindsorIntegration</Name>
+    <ProjectReference Include="..\..\..\MassTransit\src\Containers\MassTransit.NinjectIntegration\MassTransit.NinjectIntegration.csproj">
+      <Project>{25A2A3C3-27D0-4C55-A9E9-0B82D6B6913F}</Project>
+      <Name>MassTransit.NinjectIntegration</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\MassTransit\src\MassTransit\MassTransit.csproj">
       <Project>{6EFD69FC-CBCC-4F85-AEE0-EFBA73F4D273}</Project>
@@ -100,6 +88,10 @@
     <ProjectReference Include="..\..\..\MassTransit\src\Transports\MassTransit.Transports.Msmq\MassTransit.Transports.Msmq.csproj">
       <Project>{6F90867C-E092-4EDC-B3DE-600D39DF0335}</Project>
       <Name>MassTransit.Transports.Msmq</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ninject\src\Ninject\Ninject.csproj">
+      <Project>{ADF369E2-6B9E-4D56-9B82-D273AE41EC2D}</Project>
+      <Name>Ninject</Name>
     </ProjectReference>
     <ProjectReference Include="..\MassTransit.Play.Messages\MassTransit.Play.Messages.csproj">
       <Project>{C1334E2A-E6D1-4E3A-B6E7-542D818670CD}</Project>

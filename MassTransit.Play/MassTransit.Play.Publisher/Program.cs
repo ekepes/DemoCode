@@ -1,36 +1,34 @@
 ﻿using System;
+using MassTransit.NinjectIntegration;
 using MassTransit.Play.Messages;
 using MassTransit.Transports.Msmq;
-using MassTransit.WindsorIntegration;
+using Ninject;
 
 namespace MassTransit.Play.Publisher
 {
     public class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Starting Publisher");
 
-            MsmqEndpointConfigurator.Defaults(config =>
-            {
-                config.CreateMissingQueues = true;
-            });
+            MsmqEndpointConfigurator.Defaults(config => { config.CreateMissingQueues = true; });
 
-            var container = new DefaultMassTransitContainer("windsor.xml");
-            var bus = container.Resolve<IServiceBus>();
+            PlayMassTransitModel massTransitModuleBase = new PlayMassTransitModel();
+            NinjectObjectBuilder container = new NinjectObjectBuilder(new StandardKernel(massTransitModuleBase));
+            IServiceBus bus = container.GetInstance<IServiceBus>();
 
             string name;
-            while((name = GetName()) != "q")
+            while ((name = GetName()) != "q")
             {
-                var message = new NewCustomerMessage {Name = name};
+                NewCustomerMessage message = new NewCustomerMessage {Name = name};
                 bus.Publish(message);
-                
+
                 Console.WriteLine("Published NewCustomerMessage with name {0}", message.Name);
             }
 
             Console.WriteLine("Stopping Publisher");
             container.Release(bus);
-            container.Dispose();
         }
 
         private static string GetName()

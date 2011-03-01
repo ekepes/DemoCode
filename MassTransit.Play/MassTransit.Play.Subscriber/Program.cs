@@ -1,35 +1,60 @@
 ﻿using System;
-using Castle.MicroKernel.Registration;
+using MassTransit.NinjectIntegration;
 using MassTransit.Play.Subscriber.Consumers;
+using MassTransit.Transports;
 using MassTransit.Transports.Msmq;
-using MassTransit.WindsorIntegration;
+using Ninject;
 
 namespace MassTransit.Play.Subscriber
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Starting Subscriber, hit return to quit");
 
-            MsmqEndpointConfigurator.Defaults(config =>
-                {
-                    config.CreateMissingQueues = true;
-                });
+            MsmqEndpointConfigurator.Defaults(config => { config.CreateMissingQueues = true; });
 
-            var container = new DefaultMassTransitContainer("windsor.xml")
-                .Register(
-                    Component.For<NewCustomerMessageConsumer>().LifeStyle.Transient
-                );
+            PlayMassTransitModel massTransitModuleBase = new PlayMassTransitModel();
+            NinjectObjectBuilder container = new NinjectObjectBuilder(new StandardKernel(massTransitModuleBase));
 
-            var bus = container.Resolve<IServiceBus>();
-            var consumer = container.Resolve<NewCustomerMessageConsumer>();
+            //var container = new DefaultMassTransitContainer("windsor.xml")
+            //    .Register(
+            //        Component.For<NewCustomerMessageConsumer>().LifeStyle.Transient
+            //    );
+
+            IServiceBus bus = container.GetInstance<IServiceBus>();
+            NewCustomerMessageConsumer consumer = container.GetInstance<NewCustomerMessageConsumer>();
             consumer.Start(bus);
 
             Console.ReadLine();
             Console.WriteLine("Stopping Subscriber");
             consumer.Stop();
-            container.Dispose();
+        }
+    }
+
+    public class PlayMassTransitModel : MassTransitModuleBase
+    {
+        public override void Load()
+        {
+            base.Load();
+
+            RegisterEndpointFactory(x =>
+                                        {
+                                            x.RegisterTransport<LoopbackEndpoint>();
+                                            x.RegisterTransport<MulticastUdpEndpoint>();
+                                            x.RegisterTransport<MsmqEndpoint>();
+                                        });
+
+            RegisterServiceBus(@"msmq://localhost/mt_mike_subscriber",
+                               x =>
+                                   {
+                                       x.SetConcurrentConsumerLimit(1);
+
+                                       ConfigureSubscriptionClient(@"msmq://localhost/mt_subscriptions", x);
+                                   });
+
+            Bind<NewCustomerMessageConsumer>().To<NewCustomerMessageConsumer>().InTransientScope();
         }
     }
 }

@@ -55,11 +55,9 @@
     <Reference Include="log4net">
       <HintPath>..\..\..\MassTransit\lib\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Magnum">
-      <HintPath>..\..\..\MassTransit\lib\Magnum.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.ServiceLocation">
-      <HintPath>..\..\..\MassTransit\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    <Reference Include="Ninject, Version=2.1.0.67, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MassTransit\lib\Ninject-2.0\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -84,10 +82,6 @@
     <ProjectReference Include="..\..\..\MassTransit\src\Transports\MassTransit.Transports.Msmq\MassTransit.Transports.Msmq.csproj">
       <Project>{6F90867C-E092-4EDC-B3DE-600D39DF0335}</Project>
       <Name>MassTransit.Transports.Msmq</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\ninject\src\Ninject\Ninject.csproj">
-      <Project>{ADF369E2-6B9E-4D56-9B82-D273AE41EC2D}</Project>
-      <Name>Ninject</Name>
     </ProjectReference>
     <ProjectReference Include="..\MassTransit.Play.Messages\MassTransit.Play.Messages.csproj">
       <Project>{C1334E2A-E6D1-4E3A-B6E7-542D818670CD}</Project>

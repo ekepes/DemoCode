@@ -68,13 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consumers\NewCustomerMessageConsumer.cs" />
+    <Compile Include="PlaySubscriberMassTransitModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="windsor.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\MassTransit\src\Containers\MassTransit.NinjectIntegration\MassTransit.NinjectIntegration.csproj">

@@ -14,8 +14,7 @@ namespace MassTransit.Play.Subscriber
 
             MsmqEndpointConfigurator.Defaults(config => { config.CreateMissingQueues = true; });
 
-            PlaySubscriberMassTransitModel subscriberMassTransitModuleBase = new PlaySubscriberMassTransitModel();
-            NinjectObjectBuilder container = new NinjectObjectBuilder(new StandardKernel(subscriberMassTransitModuleBase));
+            IObjectBuilder container = BootstrapContainer();
             
             IServiceBus bus = container.GetInstance<IServiceBus>();
             NewCustomerMessageConsumer consumer = container.GetInstance<NewCustomerMessageConsumer>();
@@ -24,6 +23,16 @@ namespace MassTransit.Play.Subscriber
             Console.ReadLine();
             Console.WriteLine("Stopping Subscriber");
             consumer.Stop();
+        }
+
+        private static IObjectBuilder BootstrapContainer()
+        {
+            StandardKernel kernel = new StandardKernel();
+            NinjectObjectBuilder container = new NinjectObjectBuilder(kernel);
+            PlaySubscriberMassTransitModel module = new PlaySubscriberMassTransitModel(container);
+            kernel.Load(module);
+
+            return container;
         }
     }
 }

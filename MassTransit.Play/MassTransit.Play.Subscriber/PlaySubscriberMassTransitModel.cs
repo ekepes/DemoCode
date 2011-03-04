@@ -1,22 +1,19 @@
 ﻿using MassTransit.NinjectIntegration;
 using MassTransit.Play.Subscriber.Consumers;
-using MassTransit.Transports;
 using MassTransit.Transports.Msmq;
 
 namespace MassTransit.Play.Subscriber
 {
     public class PlaySubscriberMassTransitModel : MassTransitModuleBase
     {
+        public PlaySubscriberMassTransitModel(IObjectBuilder builder)
+            : base(builder, typeof (MsmqEndpoint))
+        {
+        }
+
         public override void Load()
         {
             base.Load();
-
-            RegisterEndpointFactory(x =>
-                                        {
-                                            x.RegisterTransport<LoopbackEndpoint>();
-                                            x.RegisterTransport<MulticastUdpEndpoint>();
-                                            x.RegisterTransport<MsmqEndpoint>();
-                                        });
 
             RegisterServiceBus(@"msmq://localhost/mt_play_subscriber",
                                x =>

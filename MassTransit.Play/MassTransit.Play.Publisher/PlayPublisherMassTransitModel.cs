@@ -5,8 +5,8 @@ namespace MassTransit.Play.Publisher
 {
     public class PlayPublisherMassTransitModel : MassTransitModuleBase
     {
-        public PlayPublisherMassTransitModel()
-            : base(typeof (MsmqEndpoint))
+        public PlayPublisherMassTransitModel(IObjectBuilder builder)
+            : base(builder, typeof(MsmqEndpoint))
         {
         }
 

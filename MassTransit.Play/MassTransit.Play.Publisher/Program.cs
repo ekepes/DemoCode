@@ -14,8 +14,7 @@ namespace MassTransit.Play.Publisher
 
             MsmqEndpointConfigurator.Defaults(config => { config.CreateMissingQueues = true; });
 
-            PlayPublisherMassTransitModel publisherMassTransitModuleBase = new PlayPublisherMassTransitModel();
-            NinjectObjectBuilder container = new NinjectObjectBuilder(new StandardKernel(publisherMassTransitModuleBase));
+            IObjectBuilder container = BootstrapContainer();
             IServiceBus bus = container.GetInstance<IServiceBus>();
 
             string name;
@@ -35,6 +34,16 @@ namespace MassTransit.Play.Publisher
         {
             Console.WriteLine("Enter a name to publish (q to quit)");
             return Console.ReadLine();
+        }
+
+        private static IObjectBuilder BootstrapContainer()
+        {
+            StandardKernel kernel = new StandardKernel();
+            NinjectObjectBuilder container = new NinjectObjectBuilder(kernel);
+            PlayPublisherMassTransitModel module = new PlayPublisherMassTransitModel(container);
+            kernel.Load(module);
+
+            return container;
         }
     }
 }

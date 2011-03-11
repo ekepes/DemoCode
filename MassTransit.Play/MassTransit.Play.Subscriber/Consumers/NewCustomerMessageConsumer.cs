@@ -4,30 +4,48 @@ using MassTransit.Play.Messages;
 
 namespace MassTransit.Play.Subscriber.Consumers
 {
+    using MassTransit.Play.Subscriber.Domain;
+    using MassTransit.Play.Subscriber.Orm;
+
     public class NewCustomerMessageConsumer : Consumes<NewCustomerMessage>.All, IBusService
     {
-        private IServiceBus bus;
-        private UnsubscribeAction unsubscribeAction;
+        private readonly IObjectBuilder _ObjectBuilder;
+        private IServiceBus _Bus;
+        private UnsubscribeAction _UnsubscribeAction;
+
+        public NewCustomerMessageConsumer(IObjectBuilder objectBuilder)
+        {
+            _ObjectBuilder = objectBuilder;
+        }
 
         public void Consume(NewCustomerMessage message)
         {
-            Console.WriteLine(string.Format("Received a NewCustomerMessage with Name : '{0}'", message.Name));
+            string description = string.Format("Received a NewCustomerMessage with Name : '{0}'", message.Name);
+            Console.WriteLine(description);
+
+            using (IRepository<AuditEvent> repositoryInstance = _ObjectBuilder.GetInstance<IRepository<AuditEvent>>())
+            {
+                AuditEvent auditEvent = new AuditEvent();
+                auditEvent.Description = description;
+                auditEvent.EventDate = DateTime.Now;
+                repositoryInstance.Save(auditEvent);
+            }
         }
 
         public void Dispose()
         {
-            bus.Dispose();
+            _Bus.Dispose();
         }
 
         public void Start(IServiceBus bus)
         {
-            this.bus = bus;
-            unsubscribeAction = bus.Subscribe(this);
+            _Bus = bus;
+            _UnsubscribeAction = bus.Subscribe(this);
         }
 
         public void Stop()
         {
-            unsubscribeAction();
+            _UnsubscribeAction();
         }
     }
 }

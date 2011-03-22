@@ -4,6 +4,8 @@ using MassTransit.Play.Messages;
 
 namespace MassTransit.Play.Subscriber.Consumers
 {
+    using System.Threading;
+
     using MassTransit.Play.Subscriber.Domain;
     using MassTransit.Play.Subscriber.Orm;
 
@@ -25,6 +27,11 @@ namespace MassTransit.Play.Subscriber.Consumers
 
             using (IRepository<AuditEvent> repositoryInstance = _ObjectBuilder.GetInstance<IRepository<AuditEvent>>())
             {
+                using (IRepository<AuditEvent> childRepository = _ObjectBuilder.GetInstance<IRepository<AuditEvent>>())
+                {
+                    Console.WriteLine("Thread.Name = {0}", Thread.CurrentThread.ManagedThreadId);
+                }
+
                 AuditEvent auditEvent = new AuditEvent();
                 auditEvent.Description = description;
                 auditEvent.EventDate = DateTime.Now;

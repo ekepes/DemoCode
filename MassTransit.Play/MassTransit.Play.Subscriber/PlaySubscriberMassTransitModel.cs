@@ -5,9 +5,6 @@
     using FluentNHibernate.Cfg;
     using FluentNHibernate.Cfg.Db;
 
-    using Magnum.Data;
-    using Magnum.ForNHibernate.Data;
-
     using MassTransit.NinjectIntegration;
     using MassTransit.Play.Subscriber.Consumers;
     using MassTransit.Play.Subscriber.Domain;
@@ -17,10 +14,10 @@
 
     using NHibernate;
 
+    using Ninject;
+
     public class PlaySubscriberMassTransitModel : MassTransitModuleBase
     {
-        private static ISessionFactory _SessionFactory;
-
         public PlaySubscriberMassTransitModel(IObjectBuilder builder)
             : base(builder, typeof(MsmqEndpoint))
         {
@@ -39,8 +36,22 @@
                         ConfigureSubscriptionClient(@"msmq://localhost/mt_subscriptions", x);
                     });
 
+            Bind<ISessionFactory>().ToMethod(context => CreateSessionFactory()).InSingletonScope();
+            Bind<ISession>().ToMethod(context => CreateSession()).InThreadScope();
+
+            Bind<NewCustomerMessageConsumer>().To<NewCustomerMessageConsumer>().InTransientScope();
+            Bind<IRepository<AuditEvent>>().To<OrmRepository<AuditEvent>>().InTransientScope();
+        }
+
+        private ISession CreateSession()
+        {
+            return Kernel.Get<ISessionFactory>().OpenSession();
+        }
+
+        private ISessionFactory CreateSessionFactory()
+        {
             Assembly assembly = Assembly.LoadFrom(Settings.Default.MappingAssembly.Trim());
-            _SessionFactory =
+            ISessionFactory sessionFactory =
                 Fluently.Configure().Database(
                     MsSqlConfiguration.MsSql2008.ConnectionString(Settings.Default.ConnectionString).AdoNetBatchSize(
                         100).DefaultSchema("dbo").Raw("prepare_sql", "true")).Mappings(
@@ -49,14 +60,7 @@
                     //.ExportTo(@"E:\POC\MAI.Prototype.PillBuddy\output")
                     ).BuildSessionFactory();
 
-            NHibernateUnitOfWork.SetSessionProvider(() => _SessionFactory.OpenSession());
-
-            UnitOfWork.SetUnitOfWorkProvider(NHibernateUnitOfWork.Create);
-
-            Bind<NHibernateUnitOfWork>().ToMethod(cxt => (NHibernateUnitOfWork)NHibernateUnitOfWork.Create());
-
-            Bind<NewCustomerMessageConsumer>().To<NewCustomerMessageConsumer>().InTransientScope();
-            Bind<Orm.IRepository<AuditEvent>>().To<OrmRepository<AuditEvent>>().InTransientScope();
+            return sessionFactory;
         }
     }
 }

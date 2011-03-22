@@ -3,15 +3,12 @@
     using System;
     using System.Collections.Generic;
 
-    using Magnum.Data;
-    using Magnum.ForNHibernate.Data;
-
     using NHibernate;
 
     public class OrmRepository<T> : OrmRepository<T, long>, IOrmRepository<T>
     {
-        public OrmRepository(NHibernateUnitOfWork unitOfWork)
-            : base(unitOfWork)
+        public OrmRepository(ISession session)
+            : base(session)
         {
         }
     }
@@ -23,16 +20,17 @@
     /// </summary>
     public class OrmRepository<T, TId> : IOrmRepository<T, TId>
     {
-        protected readonly NHibernateUnitOfWork _UnitOfWork;
+        protected readonly ISession _Session;
 
-        private bool _WeOwnTheTransaction;
+        private readonly bool _WeOwnTheTransaction;
 
-        public OrmRepository(NHibernateUnitOfWork unitOfWork)
+        public OrmRepository(ISession session)
         {
-            _UnitOfWork = unitOfWork;
-            if(!_UnitOfWork.IsInTransaction)
+            _Session = session;
+            if(_Session.Transaction == null || 
+                !_Session.Transaction.IsActive)
             {
-                _UnitOfWork.BeginTransaction();
+                _Session.BeginTransaction();
                 _WeOwnTheTransaction = true;
             }
         }
@@ -56,24 +54,12 @@
             {
                 if (_WeOwnTheTransaction)
                 {
-                    _UnitOfWork.Commit();
+                    _Session.Transaction.Commit();
                 }
             }
         }
 
         private readonly Type _PersistentType = typeof(T);
-
-        /// <summary>
-        /// Exposes the <c>IUnitOfWork</c> used within the DAO.
-        /// </summary>
-        /// <remarks>
-        /// This property allows inheritors to add additional functionality.
-        /// The <see cref="IUnitOfWork"/> should not be exposed beyond the inheriting class.
-        /// </remarks>
-        protected IUnitOfWork UnitOfWork
-        {
-            get { return _UnitOfWork; }
-        }
 
         /// <summary>
         /// Merges the specified entity.
@@ -82,7 +68,7 @@
         /// <returns></returns>
         public virtual T Merge(T entity)
         {
-            return (T)_UnitOfWork.Session.Merge(entity);
+            return (T)_Session.Merge(entity);
         }
 
         /// <summary>
@@ -92,7 +78,7 @@
         /// <returns></returns>
         public virtual T SaveOrUpdateCopy(T entity)
         {
-            return (T)_UnitOfWork.Session.SaveOrUpdateCopy(entity);
+            return (T)_Session.SaveOrUpdateCopy(entity);
         }
 
         /// <summary>
@@ -135,13 +121,13 @@
 
             if (shouldLock)
             {
-                entity = (T)_UnitOfWork.Session.Get(_PersistentType,
+                entity = (T)_Session.Get(_PersistentType,
                                                    id,
                                                    LockMode.Upgrade);
             }
             else
             {
-                entity = (T)_UnitOfWork.Session.Get(_PersistentType,
+                entity = (T)_Session.Get(_PersistentType,
                                                    id);
             }
 
@@ -161,7 +147,7 @@
         /// </remarks>
         public virtual List<T> GetAll()
         {
-            List<T> all = _UnitOfWork.Session.CreateCriteria(_PersistentType).List<T>() as List<T>;
+            List<T> all = _Session.CreateCriteria(_PersistentType).List<T>() as List<T>;
 
             return all;
         }
@@ -179,7 +165,7 @@
         {
             // No logging - this can get called in tight loops
 
-            _UnitOfWork.Session.Save(entity);
+            _Session.Save(entity);
 
             return entity;
         }
@@ -191,7 +177,7 @@
         {
             // No logging - this can get called in tight loops
 
-            _UnitOfWork.Session.SaveOrUpdateCopy(entity);
+            _Session.SaveOrUpdateCopy(entity);
         }
 
         /// <summary>
@@ -202,7 +188,7 @@
         {
             // No logging - this can get called in tight loops
 
-            _UnitOfWork.Session.Refresh(entity);
+            _Session.Refresh(entity);
         }
 
         /// <summary>
@@ -219,7 +205,7 @@
         {
             // No logging - this can get called in tight loops
 
-            _UnitOfWork.Session.SaveOrUpdate(entity);
+            _Session.SaveOrUpdate(entity);
 
             return entity;
         }
@@ -232,7 +218,7 @@
         {
             // No logging - this can get called in tight loops
 
-            _UnitOfWork.Session.Delete(entity);
+            _Session.Delete(entity);
         }
 
         /// <summary>
@@ -242,7 +228,7 @@
         protected void Evict(T entity)
         {
             // No logging - this can get called in tight loops
-            _UnitOfWork.Session.Evict(entity);
+            _Session.Evict(entity);
         }
 
         /// <summary>
@@ -252,7 +238,7 @@
         protected void Evict(List<T> entities)
         {
             // No logging - this can get called in tight loops
-            _UnitOfWork.Session.Evict(entities);
+            _Session.Evict(entities);
         }
 
         private void AddFetchModes(ICriteria criteria, IList<CriteriaFetchMode> fetchModes)

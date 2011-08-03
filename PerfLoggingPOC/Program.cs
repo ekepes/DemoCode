@@ -6,7 +6,7 @@ namespace PerfLoggingPOC
     {
         static void Main(string[] args)
         {
-            using (IExperiment experiment = new ExperimentThree())
+            using (Experiment experiment = new Experiment())
             {
                 experiment.Execute();
 

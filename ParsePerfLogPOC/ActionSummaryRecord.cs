@@ -1,4 +1,4 @@
-﻿namespace PerfLoggingPOC
+﻿namespace ParsePerfLogPOC
 {
     public class ActionSummaryRecord
     {

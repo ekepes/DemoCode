@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.IO;
 using System.Threading;
+using log4net;
 using PerfLoggingPOC.Properties;
 
 namespace PerfLoggingPOC
@@ -9,23 +9,19 @@ namespace PerfLoggingPOC
     public class ActionLogger : IDisposable
     {
         private readonly bool _isLoggingEnabled = Settings.Default.EnablePerformanceLogging;
-        private readonly Guid _emptyGuid = new Guid();
+        readonly ILog _log = LogManager.GetLogger("PerformanceLogger");
 
-        private static readonly object _lock = new object();
+        private static readonly object Lock = new object();
         private readonly Thread _eventualLoggingThread;
         private readonly ConcurrentQueue<LogEntry> _loggingQueue = new ConcurrentQueue<LogEntry>();
-        private readonly StreamWriter _writer;
         private bool _keepLogging;
 
         public ActionLogger()
         {
             if (_isLoggingEnabled)
             {
-                _writer = new StreamWriter("E:\\perf.log", true);
-                _writer.AutoFlush = true;
-
                 _eventualLoggingThread = new Thread(DoActionLogging);
-                lock (_lock)
+                lock (Lock)
                 {
                     _keepLogging = true;
                 }
@@ -37,18 +33,12 @@ namespace PerfLoggingPOC
         {
             if (_isLoggingEnabled)
             {
-                lock (_lock)
+                lock (Lock)
                 {
                     _keepLogging = false;
                 }
 
                 WriteOutEntries();
-
-                if (_writer != null)
-                {
-                    _writer.Close();
-                    _writer.Dispose();
-                }
             }
         }
 
@@ -59,7 +49,7 @@ namespace PerfLoggingPOC
                 WriteOutEntries();
 
                 Thread.Sleep(50);
-                lock (_lock)
+                lock (Lock)
                 {
                     if (!_keepLogging)
                     {
@@ -74,11 +64,11 @@ namespace PerfLoggingPOC
             LogEntry entry;
             while (_loggingQueue.TryDequeue(out entry))
             {
-                _writer.WriteLine(entry);
+                _log.Debug(entry);
             }
         }
 
-        public Guid LogStart(string actionName)
+        public long LogStart(string actionName)
         {
             if (_isLoggingEnabled)
             {
@@ -86,10 +76,10 @@ namespace PerfLoggingPOC
                 _loggingQueue.Enqueue(logEntry);
                 return logEntry.Token;
             }
-            return _emptyGuid;
+            return 0;
         }
 
-        public void LogEnd(Guid token, string actionName)
+        public void LogEnd(long token, string actionName)
         {
             if (_isLoggingEnabled)
             {
@@ -102,7 +92,7 @@ namespace PerfLoggingPOC
             if (_isLoggingEnabled)
             {
 
-                Guid token = LogStart(actionName);
+                long token = LogStart(actionName);
 
                 action();
 

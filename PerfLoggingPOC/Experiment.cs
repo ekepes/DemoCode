@@ -3,9 +3,9 @@ using System.Diagnostics;
 
 namespace PerfLoggingPOC
 {
-    public class ExperimentThree : IExperiment
+    public class Experiment : IDisposable
     {
-        readonly ActionLogger4 _logger = new ActionLogger4();
+        readonly ActionLogger _logger = new ActionLogger();
 
         public void Execute()
         {
@@ -19,11 +19,11 @@ namespace PerfLoggingPOC
                                       DoWork);
                 }
                 watch.Stop();
-                Console.WriteLine("{0} {1}",watch.ElapsedMilliseconds, watch.ElapsedTicks);
+                Console.WriteLine("{0} {1}", watch.ElapsedMilliseconds, watch.ElapsedTicks);
             }
         }
 
-        private void DoWork()
+        private static void DoWork()
         {
             int count = 0;
             for (int i = 0; i < 10; i++)

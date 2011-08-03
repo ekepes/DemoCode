@@ -8,9 +8,10 @@ namespace PerfLoggingPOC
         private readonly string _entry;
         private readonly DateTime _entryDate;
         private readonly int _threadId;
-        private readonly Guid _token;
+        private readonly long _token;
+        private static readonly Sequence _sequence = new Sequence();
 
-        public Guid Token
+        public long Token
         {
             get { return _token; }
         }
@@ -20,10 +21,10 @@ namespace PerfLoggingPOC
             _entryDate = DateTime.Now;
             _threadId = Thread.CurrentThread.ManagedThreadId;
             _entry = entry;
-            _token = Guid.NewGuid();
+            _token = _sequence.NextValue;
         }
 
-        public LogEntry(Guid token, string entry)
+        public LogEntry(long token, string entry)
         {
             _entryDate = DateTime.Now;
             _threadId = Thread.CurrentThread.ManagedThreadId;

@@ -2,15 +2,10 @@
 using System.IO;
 using System.Reflection;
 
-using log4net;
-
 namespace MSBuildPathLister
 {
     public class ParsedProject
     {
-        private static readonly ILog _Log =
-            LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-
         private readonly string _baseDirectory;
 
         private readonly string _masterProjectFilename;
@@ -126,8 +121,6 @@ namespace MSBuildPathLister
         {
             if (!target.AreDependenciesResolved())
             {
-                _Log.DebugFormat("Resolving dependencies for Target {0} at level {1}", target.Name, level);
-
                 List<Target> targets = new List<Target>();
 
                 ParseDependencyList(level, target.DependencyList, target.ProjectFilename, targets);

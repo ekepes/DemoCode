@@ -3,15 +3,10 @@ using System.IO;
 using System.Reflection;
 using System.Xml;
 
-using log4net;
-
 namespace MSBuildPathLister
 {
     public class ProjectParser
     {
-        private static readonly ILog _Log =
-            LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-
         private void ProcessImport(XmlNode node,
                                           string parentProjectFilename,
                                           ParsedProject project)
@@ -72,8 +67,6 @@ namespace MSBuildPathLister
 
         public void ScanProject(string filename, ParsedProject project)
         {
-            _Log.DebugFormat("ScanProject - {0}", filename);
-
             Dictionary<string, NodeProcessing> processingActions = 
                 new Dictionary<string, NodeProcessing>
             {
@@ -91,7 +84,7 @@ namespace MSBuildPathLister
 
             project.AddProjectFile(expandedFilename);
 
-            string extension = Path.GetExtension(expandedFilename).ToUpper();
+            string extension = Path.GetExtension(expandedFilename).ToUpper().Trim();
             if (extension == ".SLN")
             {
                 return;

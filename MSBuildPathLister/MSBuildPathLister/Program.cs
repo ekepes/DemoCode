@@ -7,8 +7,8 @@ namespace MSBuildPathLister
     {
         private static void Main(string[] args)
         {
-            string filename = GetArgument(args, 0, Path.Combine(Environment.CurrentDirectory, "build.proj"));
-            string target = GetArgument(args, 1, "CCNightly");
+            string target = GetArgument(args, 0, "CCNightly");
+            string filename = GetArgument(args, 1, Path.Combine(Environment.CurrentDirectory, "build.proj"));
             string treeFilename = GetArgument(args, 2, "tree.txt");
 
             ProjectParser parser = new ProjectParser();

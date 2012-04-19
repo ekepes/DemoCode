@@ -44,19 +44,30 @@ namespace MSBuildPathLister
 
             foreach (XmlNode child in node.ChildNodes)
             {
-                if (child.NodeType == XmlNodeType.Element && child.LocalName == "MSBuild")
+                if (child.NodeType == XmlNodeType.Element)
                 {
-                    XmlNode childProjects = child.Attributes.GetNamedItem("Projects");
-                    if (childProjects != null)
+                    if (child.LocalName == "MSBuild")
                     {
-                        ScanProject(childProjects.InnerText, project);
+                        XmlNode childProjects = child.Attributes.GetNamedItem("Projects");
+                        if (childProjects != null)
+                        {
+                            ScanProject(childProjects.InnerText, project);
 
+                            XmlNode targets = child.Attributes.GetNamedItem("Targets");
+                            if (targets != null)
+                            {
+                                string projectFile = project.GetExpandedRelativeFilename(childProjects.InnerText);
+                                string dependencyList = targets.InnerText;
+                                target.AddRemoteDependencyList(projectFile, dependencyList);
+                            }
+                        }
+                    }
+                    if (child.LocalName == "CallTarget")
+                    {
                         XmlNode targets = child.Attributes.GetNamedItem("Targets");
                         if (targets != null)
                         {
-                            string projectFile = project.GetExpandedRelativeFilename(childProjects.InnerText);
-                            string dependencyList = targets.InnerText;
-                            target.AddRemoteDependencyList(projectFile, dependencyList);
+                            target.AddItemToDependencyList(targets.InnerText);
                         }
                     }
                 }

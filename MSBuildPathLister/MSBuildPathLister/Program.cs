@@ -7,9 +7,17 @@ namespace MSBuildPathLister
     {
         private static void Main(string[] args)
         {
-            string target = GetArgument(args, 0, "CCNightly");
-            string filename = GetArgument(args, 1, Path.Combine(Environment.CurrentDirectory, "build.proj"));
-            string treeFilename = GetArgument(args, 2, "tree.txt");
+            string filename = GetArgument(args, 0, Path.Combine(Environment.CurrentDirectory, "build.proj"));
+            string baseDirectoryName = Path.GetDirectoryName(filename);
+            if (baseDirectoryName.Length == 0)
+            {
+                filename = Path.Combine(Environment.CurrentDirectory, filename);
+            }
+            else
+            {
+                Environment.CurrentDirectory = baseDirectoryName;
+            }
+            string outputFolder = GetArgument(args, 1, baseDirectoryName);
 
             ProjectParser parser = new ProjectParser();
             ParsedProject project = new ParsedProject(filename);
@@ -17,7 +25,7 @@ namespace MSBuildPathLister
 
             project.BuildTree();
 
-            project.WriteTreeToFile(treeFilename, target);
+            project.WriteReport(outputFolder);
         }
 
         private static string GetArgument(string[] args, int argumentPosition, string defaultValue)

@@ -16,6 +16,15 @@ namespace MSBuildPathLister
 
         public string DependencyList { get; private set; }
 
+        public void AddItemToDependencyList(string target)
+        {
+            if (DependencyList.Length > 0)
+            {
+                DependencyList += ";";
+            }
+            DependencyList += target;
+        }
+
         public List<RemoteDependencyList> RemoteDependencyLists { get; private set; }
 
         public string Name { get; private set; }

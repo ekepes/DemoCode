@@ -100,6 +100,8 @@ namespace MSBuildPathLister
             WriteBuildPropertiesFile(baseFolder);
 
             WriteOrphansFile(baseFolder);
+
+            WriteAllTargetsFile(baseFolder);
         }
 
         private void WriteOrphansFile(string baseFolder)
@@ -110,6 +112,19 @@ namespace MSBuildPathLister
                 foreach (Target orphan in orphans)
                 {
                     writer.WriteLine(BuildNamespacedName(orphan.Name, orphan.ProjectFilename));
+                }
+            }
+        }
+
+        private void WriteAllTargetsFile(string baseFolder)
+        {
+            using (StreamWriter writer = File.CreateText(Path.Combine(baseFolder, "_BuildCompleteTargetList.log")))
+            {
+                SortedDictionary<string, Target> sortedTargets = new SortedDictionary<string, Target>(Targets);
+                foreach (KeyValuePair<string, Target> keyValuePair in sortedTargets)
+                {
+                    Target target = keyValuePair.Value;
+                    writer.WriteLine(BuildNamespacedName(target.Name, target.ProjectFilename));
                 }
             }
         }

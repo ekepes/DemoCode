@@ -102,6 +102,8 @@ namespace MSBuildPathLister
             WriteOrphansFile(baseFolder);
 
             WriteAllTargetsFile(baseFolder);
+
+            WriteUsageFile(baseFolder);
         }
 
         private void WriteOrphansFile(string baseFolder)
@@ -111,7 +113,19 @@ namespace MSBuildPathLister
             {
                 foreach (Target orphan in orphans)
                 {
-                    writer.WriteLine(BuildNamespacedName(orphan.Name, orphan.ProjectFilename));
+                    writer.WriteLine(BuildNamespacedName(orphan));
+                }
+            }
+        }
+
+        private void WriteUsageFile(string baseFolder)
+        {
+            SortedDictionary<string, string> usage = new SortedDictionary<string, string>(FindTargetUsage());
+            using (StreamWriter writer = File.CreateText(Path.Combine(baseFolder, "_BuildTargetUsage.log")))
+            {
+                foreach (KeyValuePair<string, string> item in usage)
+                {
+                    writer.WriteLine("{0} - {1}", item.Key, item.Value);
                 }
             }
         }
@@ -124,7 +138,7 @@ namespace MSBuildPathLister
                 foreach (KeyValuePair<string, Target> keyValuePair in sortedTargets)
                 {
                     Target target = keyValuePair.Value;
-                    writer.WriteLine(BuildNamespacedName(target.Name, target.ProjectFilename));
+                    writer.WriteLine(BuildNamespacedName(target));
                 }
             }
         }
@@ -153,6 +167,11 @@ namespace MSBuildPathLister
                     }
                 }
             }
+        }
+
+        private string BuildNamespacedName(Target target)
+        {
+            return BuildNamespacedName(target.Name, target.ProjectFilename);
         }
 
         private string BuildNamespacedName(string name, string relativeFilename)
@@ -240,6 +259,26 @@ namespace MSBuildPathLister
             }
 
             return orphans;
+        }
+
+        private Dictionary<string, string> FindTargetUsage()
+        {
+            Dictionary<string, string> usage = new Dictionary<string, string>();
+            foreach (Target target in Targets.Values)
+            {
+                string users = string.Empty;
+                foreach (Target item in Targets.Values)
+                {
+                    if (item.Dependencies.Contains(target))
+                    {
+                        users += BuildNamespacedName(item) + ";";
+                    }
+                }
+
+                usage.Add(BuildNamespacedName(target), users);
+            }
+
+            return usage;
         }
     }
 }

@@ -13,6 +13,8 @@ namespace Books.Models
 
         public Author Author { get; set; }
 
+        public DateTime PubDate { get; set; }
+
         public int Pages { get; set; }
 
         public decimal Price { get; set; }

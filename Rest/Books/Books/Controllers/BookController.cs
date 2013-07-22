@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -41,27 +42,9 @@ namespace Books.Controllers
                                     }
                             };
 
-        public IEnumerable<Book> Get()
+        public HttpResponseMessage Get([FromUri] BookQuery query)
         {
-            return Books;
-        }
-
-        public HttpResponseMessage Get(string id)
-        {
-            var foundBook = Books.Find(book => book.Isbn == id);
-
-            if (foundBook == null)
-            {
-                return Request.CreateResponse(HttpStatusCode.NotFound,
-                    string.Format("ISBN=[{0}] does not exist.", id));
-            }
-
-            return Request.CreateResponse(HttpStatusCode.OK, foundBook);
-        }
-
-        public HttpResponseMessage Get([FromUri] DateTime after)
-        {
-            var books = Books.FindAll(book => book.PubDate >= after);
+            var books = Books.Where(query.IsMatch).ToList();
 
             return Request.CreateResponse(HttpStatusCode.OK, books);
         }

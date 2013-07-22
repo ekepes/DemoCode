@@ -26,3 +26,4 @@ SolutionVersion.cs
 
 MSBuildPathLister/output/
 Ordering/output/*
+Rest/Books/packages/*

@@ -5,7 +5,6 @@ namespace EventyStoreySitey.Controllers
 {
     public class ValuesController : ApiController
     {
-        private const string _value = "value";
         // GET api/values
         public IEnumerable<string> Get()
         {
@@ -15,7 +14,7 @@ namespace EventyStoreySitey.Controllers
         // GET api/values/5
         public string Get(int id)
         {
-            return _value;
+            return "value";
         }
 
         // POST api/values

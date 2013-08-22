@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace EventyStoreySitey
+namespace EventyStoreySitey.App_Start
 {
     public static class WebApiConfig
     {

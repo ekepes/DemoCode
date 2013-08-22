@@ -4,8 +4,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>2.0</ProductVersion>
-    <ProjectGuid>76176b4a-87c3-4d07-baeb-50c25204d183</ProjectGuid>
+    <ProductVersion>2.1</ProductVersion>
+    <ProjectGuid>d9a22ce8-5e53-4e8a-b4c5-71bc0d5c1d10</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TableStorage</RootNamespace>
@@ -39,7 +39,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EventyStoreySitey\EventyStoreySitey.csproj">
       <Name>EventyStoreySitey</Name>
-      <Project>{b1cfade9-86ea-4e20-be6a-97f9cff2b974}</Project>
+      <Project>{84fcb769-6a54-4ba4-9477-9f07f437e0f1}</Project>
       <Private>True</Private>
       <RoleType>Web</RoleType>
       <RoleName>EventyStoreySitey</RoleName>
@@ -57,7 +57,7 @@
   <!-- Import the target files for this project template -->
   <PropertyGroup>
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
-    <CloudExtensionsDir Condition=" '$(CloudExtensionsDir)' == '' ">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Windows Azure Tools\2.0\</CloudExtensionsDir>
+    <CloudExtensionsDir Condition=" '$(CloudExtensionsDir)' == '' ">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Windows Azure Tools\2.1\</CloudExtensionsDir>
   </PropertyGroup>
   <Import Project="$(CloudExtensionsDir)Microsoft.WindowsAzure.targets" />
 </Project>

@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Microsoft.WindowsAzure.Storage.Table;
+using Newtonsoft.Json;
 
 namespace EventyStoreySitey.Models
 {

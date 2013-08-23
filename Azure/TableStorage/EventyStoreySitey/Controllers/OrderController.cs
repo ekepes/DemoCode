@@ -7,11 +7,16 @@ namespace EventyStoreySitey.Controllers
 {
     public class OrderController : ApiController
     {
-        public void Post([FromBody]string value)
+        public void Post(string id, [FromBody]Item item)
         {
             var repository = new EventRepository();
 
-            var itemAdded = new ItemAdded {AggregateId = "12345678", ItemName = value, Quantity = 5};
+            var itemAdded = new ItemAdded
+                {
+                    AggregateId = id, 
+                    ItemName = item.ItemName, 
+                    Quantity = item.Quantity
+                };
             repository.StoreEvent<Order>(itemAdded);
         }
 

@@ -6,6 +6,8 @@ namespace EventyStoreySitey.Models
     {
         public string AggregateId { get; private set; }
 
+        public string CustomerName { get; set; }
+
         public List<Item> Items { get; private set; }
 
         public void Rehydrate(string aggregateId, IEnumerable<IDomainEvent> eventStream)
@@ -14,11 +16,20 @@ namespace EventyStoreySitey.Models
             Items = new List<Item>();
             foreach (IDomainEvent domainEvent in eventStream)
             {
+                if (domainEvent is OrderStarted)
+                {
+                    Process(domainEvent as OrderStarted);
+                }
                 if (domainEvent is ItemAdded)
                 {
                     Process(domainEvent as ItemAdded);
                 }
             }
+        }
+
+        private void Process(OrderStarted orderStarted)
+        {
+            CustomerName = orderStarted.CustomerName;
         }
 
         private void Process(ItemAdded itemAdded)

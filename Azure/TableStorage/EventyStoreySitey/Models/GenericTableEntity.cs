@@ -16,6 +16,8 @@ namespace EventyStoreySitey.Models
             RowKey = DateTimeOffset.UtcNow.ToString("yyyyMMddhhmmssffffff");
         }
 
+        public string ValueType { get; set; }
+
         public string Value { get; set; }
     }
 }

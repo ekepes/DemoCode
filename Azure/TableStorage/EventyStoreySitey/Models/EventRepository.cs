@@ -33,8 +33,8 @@ namespace EventyStoreySitey.Models
             table.Execute(insertOperation);
         }
 
-        public IList<IDomainEvent> GetEvents<TAggregate>(string aggregateId)
-            where TAggregate : IAggregate
+        public TAggregate GetAggregate<TAggregate>(string aggregateId)
+            where TAggregate : IAggregate, new()
         {
             CloudTable table = ResolveCloudTable<TAggregate>();
 
@@ -54,7 +54,10 @@ namespace EventyStoreySitey.Models
                 domainEvents.Add(deserializeObject as IDomainEvent);
             }
 
-            return domainEvents;
+            TAggregate aggregate = new TAggregate();
+            aggregate.Rehydrate(aggregateId, domainEvents);
+
+            return aggregate;
         }
 
         private CloudTable ResolveCloudTable<TAggregate>()

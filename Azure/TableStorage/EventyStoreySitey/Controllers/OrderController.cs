@@ -20,11 +20,11 @@ namespace EventyStoreySitey.Controllers
             repository.StoreEvent<Order>(itemAdded);
         }
 
-        public IList<IDomainEvent> Get(string id)
+        public Order Get(string id)
         {
             var repository = new EventRepository();
 
-            return repository.GetEvents<Order>(id);
+            return repository.GetAggregate<Order>(id);
         }
     }
 }

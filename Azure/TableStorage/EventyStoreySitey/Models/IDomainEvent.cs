@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EventyStoreySitey.Models
+﻿namespace EventyStoreySitey.Models
 {
     public interface IDomainEvent
     {

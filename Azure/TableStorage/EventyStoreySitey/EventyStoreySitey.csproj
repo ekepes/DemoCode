@@ -122,10 +122,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\EventRepository.cs" />
-    <Compile Include="Models\GenericTableEntity.cs" />
-    <Compile Include="Models\IAggregate.cs" />
-    <Compile Include="Models\IDomainEvent.cs" />
+    <Compile Include="Models\TableEventStore\AggregateRepository.cs" />
+    <Compile Include="Models\TableEventStore\DomainEventTableEntity.cs" />
+    <Compile Include="Models\TableEventStore\IAggregate.cs" />
+    <Compile Include="Models\TableEventStore\IAggregateRepository.cs" />
+    <Compile Include="Models\TableEventStore\IDomainEvent.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ItemAdded.cs" />
     <Compile Include="Models\Order.cs" />

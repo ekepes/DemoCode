@@ -1,16 +1,15 @@
 ﻿using System;
-
 using Microsoft.WindowsAzure.Storage.Table;
 
-namespace EventyStoreySitey.Models
+namespace EventyStoreySitey.Models.TableEventStore
 {
-    public class GenericTableEntity : TableEntity
+    public class DomainEventTableEntity : TableEntity
     {
-        public GenericTableEntity()
+        public DomainEventTableEntity()
         {
         }
 
-        public GenericTableEntity(string aggregateId)
+        public DomainEventTableEntity(string aggregateId)
         {
             PartitionKey = aggregateId;
             RowKey = DateTimeOffset.UtcNow.ToString("yyyyMMddhhmmssffffff");

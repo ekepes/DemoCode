@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace EventyStoreySitey.Models
+namespace EventyStoreySitey.Models.TableEventStore
 {
     public interface IAggregate
     {

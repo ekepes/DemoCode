@@ -1,4 +1,6 @@
-﻿namespace EventyStoreySitey.Models
+﻿using EventyStoreySitey.Models.TableEventStore;
+
+namespace EventyStoreySitey.Models
 {
     public class OrderStarted : IDomainEvent
     {

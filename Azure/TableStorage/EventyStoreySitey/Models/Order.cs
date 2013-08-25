@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
+using EventyStoreySitey.Models.TableEventStore;
 
 namespace EventyStoreySitey.Models
 {
     public class Order : IAggregate
     {
-        public string AggregateId { get; private set; }
-
         public string CustomerName { get; set; }
 
         public List<Item> Items { get; private set; }
+        public string AggregateId { get; private set; }
 
         public void Rehydrate(string aggregateId, IEnumerable<IDomainEvent> eventStream)
         {
             AggregateId = aggregateId;
             Items = new List<Item>();
-            foreach (IDomainEvent domainEvent in eventStream)
+            foreach (var domainEvent in eventStream)
             {
                 if (domainEvent is OrderStarted)
                 {
@@ -41,7 +41,11 @@ namespace EventyStoreySitey.Models
             }
             else
             {
-                Items.Add(new Item { ItemName = itemAdded.ItemName, Quantity = itemAdded.Quantity });
+                Items.Add(new Item
+                    {
+                        ItemName = itemAdded.ItemName,
+                        Quantity = itemAdded.Quantity
+                    });
             }
         }
     }

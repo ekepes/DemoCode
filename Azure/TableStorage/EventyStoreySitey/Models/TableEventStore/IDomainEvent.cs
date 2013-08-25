@@ -1,4 +1,4 @@
-﻿namespace EventyStoreySitey.Models
+﻿namespace EventyStoreySitey.Models.TableEventStore
 {
     public interface IDomainEvent
     {

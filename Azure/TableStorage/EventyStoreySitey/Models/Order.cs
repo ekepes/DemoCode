@@ -5,13 +5,18 @@ namespace EventyStoreySitey.Models
 {
     public class Order : IAggregate
     {
+        public string TenantId { get; set; }
+
         public string CustomerName { get; set; }
 
         public List<Item> Items { get; private set; }
         public string AggregateId { get; private set; }
 
-        public void Rehydrate(string aggregateId, IEnumerable<IDomainEvent> eventStream)
+        public void Rehydrate(string tenantId,
+            string aggregateId, 
+            IEnumerable<IDomainEvent> eventStream)
         {
+            TenantId = tenantId;
             AggregateId = aggregateId;
             Items = new List<Item>();
             foreach (var domainEvent in eventStream)

@@ -15,10 +15,11 @@ namespace EventyStoreySitey.Models.TableEventStore
         private readonly CloudStorageAccount _storageAccount =
             CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-        public void StoreEvent<TAggregate>(IDomainEvent myEvent)
+        public void StoreEvent<TAggregate>(string tenantId,
+            IDomainEvent myEvent)
             where TAggregate : IAggregate
         {
-            var table = ResolveCloudTable<TAggregate>();
+            var table = ResolveCloudTable<TAggregate>(tenantId);
 
             var entity = new DomainEventTableEntity(myEvent.AggregateId)
                 {
@@ -33,10 +34,11 @@ namespace EventyStoreySitey.Models.TableEventStore
             table.Execute(insertOperation);
         }
 
-        public TAggregate GetAggregate<TAggregate>(string aggregateId)
+        public TAggregate GetAggregate<TAggregate>(string tenantId,
+            string aggregateId)
             where TAggregate : IAggregate, new()
         {
-            var table = ResolveCloudTable<TAggregate>();
+            var table = ResolveCloudTable<TAggregate>(tenantId);
 
             var query = new TableQuery<DomainEventTableEntity>()
                 .Where(TableQuery.GenerateFilterCondition("PartitionKey",
@@ -52,17 +54,20 @@ namespace EventyStoreySitey.Models.TableEventStore
                 .ToList();
 
             var aggregate = new TAggregate();
-            aggregate.Rehydrate(aggregateId, domainEvents);
+            aggregate.Rehydrate(tenantId, aggregateId, domainEvents);
 
             return aggregate;
         }
 
-        private CloudTable ResolveCloudTable<TAggregate>()
+        private CloudTable ResolveCloudTable<TAggregate>(string tenantId)
             where TAggregate : IAggregate
         {
             var tableClient = _storageAccount.CreateCloudTableClient();
 
-            var table = tableClient.GetTableReference((typeof (TAggregate)).Name);
+            var tableName = string.Format("{0}{1}",
+                tenantId,
+                typeof(TAggregate).Name);
+            var table = tableClient.GetTableReference(tableName);
             table.CreateIfNotExists();
             return table;
         }

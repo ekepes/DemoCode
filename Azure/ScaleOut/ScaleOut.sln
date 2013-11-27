@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "ScaleOut", "ScaleOut\ScaleOut.ccproj", "{EA3E03AD-5F4E-4D5E-AE43-8395A9F3B9A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkCreator", "WorkCreator\WorkCreator.csproj", "{645BE17D-FAE2-4773-9268-48F0C450B4C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkDoer", "WorkDoer\WorkDoer.csproj", "{21746088-7690-4E4E-B1F6-012BC273E4BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleOutContracts", "ScaleOutContracts\ScaleOutContracts.csproj", "{CACEECC1-AAC7-470D-ABDD-9674F4373ED4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA3E03AD-5F4E-4D5E-AE43-8395A9F3B9A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA3E03AD-5F4E-4D5E-AE43-8395A9F3B9A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA3E03AD-5F4E-4D5E-AE43-8395A9F3B9A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA3E03AD-5F4E-4D5E-AE43-8395A9F3B9A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{645BE17D-FAE2-4773-9268-48F0C450B4C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{645BE17D-FAE2-4773-9268-48F0C450B4C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{645BE17D-FAE2-4773-9268-48F0C450B4C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{645BE17D-FAE2-4773-9268-48F0C450B4C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21746088-7690-4E4E-B1F6-012BC273E4BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21746088-7690-4E4E-B1F6-012BC273E4BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21746088-7690-4E4E-B1F6-012BC273E4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21746088-7690-4E4E-B1F6-012BC273E4BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CACEECC1-AAC7-470D-ABDD-9674F4373ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CACEECC1-AAC7-470D-ABDD-9674F4373ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CACEECC1-AAC7-470D-ABDD-9674F4373ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CACEECC1-AAC7-470D-ABDD-9674F4373ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

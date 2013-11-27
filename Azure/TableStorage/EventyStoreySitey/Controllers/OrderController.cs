@@ -10,11 +10,12 @@ namespace EventyStoreySitey.Controllers
 {
     public class OrderController : ApiController
     {
+        private const string HardCodedTenantIdForPoc = "POC";
         private readonly IAggregateRepository _repository = new AggregateRepository();
 
         public Order Get(string id)
         {
-            return _repository.GetAggregate<Order>(id);
+            return _repository.GetAggregate<Order>(HardCodedTenantIdForPoc, id);
         }
 
         public HttpResponseMessage Post([FromBody] Customer customer)
@@ -25,16 +26,18 @@ namespace EventyStoreySitey.Controllers
                                                 AggregateId = aggregateId, 
                                                 CustomerName = customer.CustomerName
                                             };
-            _repository.StoreEvent<Order>(orderStarted);
+            _repository.StoreEvent<Order>(HardCodedTenantIdForPoc, orderStarted);
 
             var response = Request.CreateResponse(HttpStatusCode.Created);
 
             var uri = Url.Link("DefaultApi", new { id = aggregateId });
+// ReSharper disable AssignNullToNotNullAttribute
             response.Headers.Location = new Uri(uri);
+// ReSharper restore AssignNullToNotNullAttribute
             return response;
         }
 
-        public void Post(string id, [FromBody] Item item)
+        public void Put(string id, [FromBody] Item item)
         {
             var itemAdded = new ItemAdded
                 {
@@ -42,7 +45,7 @@ namespace EventyStoreySitey.Controllers
                     ItemName = item.ItemName, 
                     Quantity = item.Quantity
                 };
-            _repository.StoreEvent<Order>(itemAdded);
+            _repository.StoreEvent<Order>(HardCodedTenantIdForPoc, itemAdded);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using ProbabilityKata;
 
 namespace ProbabilityKataTests
@@ -26,7 +25,7 @@ namespace ProbabilityKataTests
         }
 
         [Test]
-        public void Either_hal_or_half_is_three_quarters()
+        public void Either_half_or_half_is_three_quarters()
         {
             var expected = new Probability(0.75m);
             var actual = new Probability(0.5m).Either(new Probability(0.5m));

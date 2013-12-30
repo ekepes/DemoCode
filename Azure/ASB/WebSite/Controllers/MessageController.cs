@@ -8,7 +8,7 @@ namespace WebSite.Controllers
     {
         public void Post([FromBody] string value)
         {
-            BusDriver driver = new BusDriver();
+            var driver = new BusDriver();
             driver.SendMessage(value);
         }
     }

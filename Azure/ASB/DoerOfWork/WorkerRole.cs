@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Net;
 using System.Threading;
-
+using Microsoft.ServiceBus;
 using Microsoft.ServiceBus.Messaging;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -16,11 +16,21 @@ namespace DoerOfWork
             // This is a sample worker implementation. Replace with your logic.
             Trace.TraceInformation("DoerOfWork entry point called", "Information");
 
+            string queueName = "asbtestqueue";
             string connectionString =
     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-            QueueClient client =
-                QueueClient.CreateFromConnectionString(connectionString, "TestQueue");
+            var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+
+            if (!namespaceManager.QueueExists(queueName))
+                namespaceManager.CreateQueue(queueName);
+
+            MessagingFactory factory =
+                MessagingFactory.CreateFromConnectionString(connectionString);
+
+            // Initialize the connection to Service Bus Queue
+            var client = factory.CreateQueueClient(queueName, ReceiveMode.PeekLock);
+
 
             while (true)
             {

@@ -9,15 +9,20 @@ namespace WebSite.Models
         public void SendMessage(string message)
         {
             string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+            string queueName = "asbtestqueue";
 
             NamespaceManager namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
 
-            if (!namespaceManager.QueueExists("TestQueue"))
+            if (!namespaceManager.QueueExists(queueName))
             {
-                namespaceManager.CreateQueue("TestQueue");
+                namespaceManager.CreateQueue(queueName);
             }
 
-            QueueClient client = QueueClient.CreateFromConnectionString(connectionString, "TestQueue");
+            MessagingFactory factory =
+                MessagingFactory.CreateFromConnectionString(connectionString);
+
+            // Initialize the connection to Service Bus Queue
+            var client = factory.CreateQueueClient(queueName, ReceiveMode.PeekLock);
 
             client.Send(new BrokeredMessage(message));
         }

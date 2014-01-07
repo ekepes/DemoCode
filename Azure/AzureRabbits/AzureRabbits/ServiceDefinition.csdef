@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ServiceDefinition name="TableStorage" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2013-10.2.2">
-  <WebRole name="EventyStoreySitey" vmsize="Small">
+<ServiceDefinition name="AzureRabbits" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2013-10.2.2">
+  <WebRole name="WebSite" vmsize="Small">
     <Sites>
       <Site name="Web">
         <Bindings>
@@ -14,8 +14,13 @@
     <Imports>
       <Import moduleName="Diagnostics" />
     </Imports>
+  </WebRole>
+  <WorkerRole name="PatientOrderService" vmsize="Small">
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
     <ConfigurationSettings>
       <Setting name="StorageConnectionString" />
     </ConfigurationSettings>
-  </WebRole>
+  </WorkerRole>
 </ServiceDefinition>

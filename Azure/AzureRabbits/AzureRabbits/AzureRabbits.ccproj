@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>2.2</ProductVersion>
-    <ProjectGuid>d9a22ce8-5e53-4e8a-b4c5-71bc0d5c1d10</ProjectGuid>
+    <ProjectGuid>74ac1dd7-deb4-4622-9663-2e9aa182672e</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TableStorage</RootNamespace>
-    <AssemblyName>TableStorage</AssemblyName>
+    <RootNamespace>AzureRabbits</RootNamespace>
+    <AssemblyName>AzureRabbits</AssemblyName>
     <StartDevelopmentStorage>True</StartDevelopmentStorage>
-    <Name>TableStorage</Name>
+    <Name>AzureRabbits</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,20 +37,32 @@
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EventyStoreySitey\EventyStoreySitey.csproj">
-      <Name>EventyStoreySitey</Name>
-      <Project>{84fcb769-6a54-4ba4-9477-9f07f437e0f1}</Project>
+    <ProjectReference Include="..\PatientOrderService\PatientOrderService.csproj">
+      <Name>PatientOrderService</Name>
+      <Project>{12bad2de-2f57-4273-990f-2698abae387e}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>PatientOrderService</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\WebSite\WebSite.csproj">
+      <Name>WebSite</Name>
+      <Project>{c86b821d-c44b-4aa0-8560-4b97770543fe}</Project>
       <Private>True</Private>
       <RoleType>Web</RoleType>
-      <RoleName>EventyStoreySitey</RoleName>
+      <RoleName>WebSite</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="EventyStoreySiteyContent\" />
+    <Folder Include="PatientOrderServiceContent\" />
+    <Folder Include="WebSiteContent\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EventyStoreySiteyContent\diagnostics.wadcfg">
+    <Content Include="PatientOrderServiceContent\diagnostics.wadcfg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="WebSiteContent\diagnostics.wadcfg">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>

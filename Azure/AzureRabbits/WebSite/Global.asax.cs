@@ -24,7 +24,7 @@ namespace WebSite
                 sbc =>
                 {
                     sbc.UseRabbitMq();
-                    sbc.ReceiveFrom("rabbitmq://Ahk5wwl1/azurewebsite");
+                    sbc.ReceiveFrom("rabbitmq://busdriver.cloudapp.net/azurewebsite");
                 });
         }
     }

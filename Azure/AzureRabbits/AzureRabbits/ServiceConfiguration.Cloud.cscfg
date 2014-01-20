@@ -3,13 +3,13 @@
   <Role name="WebSite">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=bustest;AccountKey=0zmch75eUUEPXrYDQGcGV3ie4FvMog9UnW6FtfVSOmPV3KtM64nGbO0hnFTNvv6vnaU0HL9IfyFTFZWk+/wGNQ==" />
     </ConfigurationSettings>
   </Role>
   <Role name="PatientOrderService">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=bustest;AccountKey=0zmch75eUUEPXrYDQGcGV3ie4FvMog9UnW6FtfVSOmPV3KtM64nGbO0hnFTNvv6vnaU0HL9IfyFTFZWk+/wGNQ==" />
       <Setting name="StorageConnectionString" value="UseDevelopmentStorage=true" />
     </ConfigurationSettings>
   </Role>

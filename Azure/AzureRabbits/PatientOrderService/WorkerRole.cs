@@ -25,7 +25,7 @@ namespace PatientOrderService
             _bus = ServiceBusFactory.New(sbc =>
                 {
                     sbc.UseRabbitMq();
-                    sbc.ReceiveFrom("rabbitmq://Ahk5wwl1/azure_patient_order_service");
+                    sbc.ReceiveFrom("rabbitmq://busdriver.cloudapp.net/azure_patient_order_service");
                 });
             _bus.SubscribeInstance(new ItemPickedHandler());
 

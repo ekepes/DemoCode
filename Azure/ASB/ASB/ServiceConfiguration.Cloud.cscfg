@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="ASB" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2013-10.2.2">
+  <Role name="WebSite">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://win-9rq0oc3bvc3/ericsb;StsEndpoint=https://win-9rq0oc3bvc3:9355/ericsb;RuntimePort=9354;ManagementPort=9355;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=JLNRzq0Os3TSIIQPk1VJBwQEUm1DBKjxuVGE19notZI=" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="DoerOfWork">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://win-9rq0oc3bvc3/ericsb;StsEndpoint=https://win-9rq0oc3bvc3:9355/ericsb;RuntimePort=9354;ManagementPort=9355;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=JLNRzq0Os3TSIIQPk1VJBwQEUm1DBKjxuVGE19notZI=" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

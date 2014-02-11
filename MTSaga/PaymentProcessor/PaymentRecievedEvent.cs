@@ -6,15 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Coordinator
+namespace PaymentProcessor
 {
-    public class OrderPlacedEvent : OrderPlaced
+    public class PaymentRecievedEvent : PaymentReceived
     {
-        public OrderPlacedEvent(Guid correlationId, Order order)
+        public PaymentRecievedEvent(Guid correlationId, Order order)
         {
-            CorrelationId = correlationId;
             EventId = Guid.NewGuid();
             Timestamp = DateTimeOffset.Now;
+            CorrelationId = correlationId;
             Order = order;
         }
 

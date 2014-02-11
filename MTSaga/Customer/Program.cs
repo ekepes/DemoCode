@@ -21,21 +21,19 @@ namespace Customer
                     break;
                 }
 
-                Bus.Instance.GetEndpoint(CoordinatorAddress)
-                   .Send(new PlaceOrderCommand(new CustomerOrder(order)));
+                Bus.Instance.Publish(new OrderSubmittedEvent(new CustomerOrder(order)));
             }
 
             StopServiceBus();
         }
 
-        public static readonly Uri CoordinatorAddress = new Uri("rabbitmq://localhost/mtsaga-coordinator");
+        //public static readonly Uri CoordinatorAddress = new Uri("rabbitmq://localhost/mtsaga-coordinator");
         public static readonly Uri WebAddress = new Uri("rabbitmq://localhost/mtsaga-customer");
 
         public static void RegisterServiceBus()
         {
             Bus.Initialize(x =>
             {
-                x.ReceiveFrom(WebAddress);
                 x.UseRabbitMq(r =>
                 {
                     r.ConfigureHost(WebAddress, h =>

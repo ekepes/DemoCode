@@ -1,5 +1,9 @@
 -module(drop). 
 -export([fall_velocity/1]).
+<<<<<<< HEAD
+
+=======
+>>>>>>> 637c06a3f3080246097502a4c491cd8c574983f3
 fall_velocity({Planemo, Distance}) -> fall_velocity(Planemo, Distance).
 
 fall_velocity(Planemo, Distance) when Distance >= 0 ->

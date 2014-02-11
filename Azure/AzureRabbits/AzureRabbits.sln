@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AzureRabbits", "AzureRabbits\AzureRabbits.ccproj", "{74AC1DD7-DEB4-4622-9663-2E9AA182672E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSite", "WebSite\WebSite.csproj", "{C86B821D-C44B-4AA0-8560-4B97770543FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientOrderService", "PatientOrderService\PatientOrderService.csproj", "{12BAD2DE-2F57-4273-990F-2698ABAE387E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageContracts", "MessageContracts\MessageContracts.csproj", "{F69DC278-151C-422E-9096-22FCA27DDE48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4B825913-4FB0-4FB9-94B7-02E6E7526608}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74AC1DD7-DEB4-4622-9663-2E9AA182672E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74AC1DD7-DEB4-4622-9663-2E9AA182672E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74AC1DD7-DEB4-4622-9663-2E9AA182672E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74AC1DD7-DEB4-4622-9663-2E9AA182672E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C86B821D-C44B-4AA0-8560-4B97770543FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C86B821D-C44B-4AA0-8560-4B97770543FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C86B821D-C44B-4AA0-8560-4B97770543FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C86B821D-C44B-4AA0-8560-4B97770543FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12BAD2DE-2F57-4273-990F-2698ABAE387E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12BAD2DE-2F57-4273-990F-2698ABAE387E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12BAD2DE-2F57-4273-990F-2698ABAE387E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12BAD2DE-2F57-4273-990F-2698ABAE387E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F69DC278-151C-422E-9096-22FCA27DDE48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F69DC278-151C-422E-9096-22FCA27DDE48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F69DC278-151C-422E-9096-22FCA27DDE48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F69DC278-151C-422E-9096-22FCA27DDE48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -22,7 +22,7 @@ namespace Coordinator
 
             // use an in-memory saga repository to keep things simple, although SQLite would work
             // nicely here as well.
-            _repository = new InMemorySagaRepository<OrderingState>();
+            _repository = new SagaRepositoryLearningShim<OrderingState>();
             _bus = ServiceBusFactory.New(x =>
             {
                 x.ReceiveFrom(_address);

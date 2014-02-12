@@ -26,15 +26,11 @@ namespace Coordinator
         public DateTimeOffset Created { get; set; }
 
         public Guid CorrelationId { get; private set; }
+        
         public IServiceBus Bus { get; set; }
 
         public State CurrentState { get; set; }
-
-        /// <summary>
-        /// If faulted, the reason why it faulted
-        /// </summary>
-        public string Reason { get; set; }
-
+        
         public Order Order { get; set; }
     }
 }

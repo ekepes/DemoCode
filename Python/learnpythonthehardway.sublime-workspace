@@ -1,0 +1,480 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"st",
+				"start_point"
+			],
+			[
+				"sr",
+				"start_point"
+			],
+			[
+				"j",
+				"jelly_beans"
+			],
+			[
+				"cur",
+				"current_line"
+			],
+			[
+				"prin",
+				"print_a_line"
+			],
+			[
+				"am",
+				"amount_of_crackers"
+			],
+			[
+				"ch",
+				"cheese_and_crackers"
+			],
+			[
+				"che",
+				"cheese_and_crackers"
+			],
+			[
+				"bo",
+				"boxes_of_crackers"
+			],
+			[
+				"print_two",
+				"print_two_again"
+			],
+			[
+				"out",
+				"out_file"
+			],
+			[
+				"to",
+				"to_file"
+			],
+			[
+				"from",
+				"from_file"
+			],
+			[
+				"txt",
+				"txt_again"
+			],
+			[
+				"fi",
+				"file_again"
+			],
+			[
+				"fil",
+				"filename"
+			],
+			[
+				"pro",
+				"prompt"
+			],
+			[
+				"ta",
+				"tabby_cat"
+			],
+			[
+				"for",
+				"formatter"
+			],
+			[
+				"fo",
+				"formatter"
+			],
+			[
+				"jo",
+				"joke_evaluation"
+			],
+			[
+				"do",
+				"do_not"
+			],
+			[
+				"av",
+				"average_passengers_per_car"
+			],
+			[
+				"car_",
+				"cars_not_driven"
+			],
+			[
+				"cars",
+				"cars_driven"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "ex19.py",
+			"settings":
+			{
+				"buffer_size": 674,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "ex20.py",
+			"settings":
+			{
+				"buffer_size": 562,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "ex21.py",
+			"settings":
+			{
+				"buffer_size": 689,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "ex24.py",
+			"settings":
+			{
+				"buffer_size": 914,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "test.txt",
+			"settings":
+			{
+				"buffer_size": 44,
+				"line_ending": "Windows",
+				"name": "This is line 1"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"su",
+				"SublimeREPL: Erlang"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 160.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/github/ekepes/DemoCode/Python/ex18.py",
+		"/C/github/ekepes/DemoCode/Python/ex17.py",
+		"/C/github/ekepes/DemoCode/Python/ex16.py",
+		"/C/github/ekepes/DemoCode/Python/ex13.py",
+		"/C/github/ekepes/DemoCode/Python/ex14.py",
+		"/C/github/ekepes/DemoCode/Python/ex15_sample.txt",
+		"/C/github/ekepes/DemoCode/Python/ex15.py",
+		"/C/github/ekepes/DemoCode/Python/ex12.py",
+		"/C/Tools/pydoc.cmd",
+		"/C/github/ekepes/DemoCode/Python/ex11.py",
+		"/C/github/ekepes/DemoCode/Python/ex10a.py",
+		"/C/github/ekepes/DemoCode/Python/ex10.py",
+		"/C/github/ekepes/DemoCode/Python/ex9.py",
+		"/C/github/ekepes/DemoCode/Python/ex8.py",
+		"/C/github/ekepes/DemoCode/Python/ex7.py",
+		"/C/github/ekepes/DemoCode/Python/ex6.py",
+		"/C/github/ekepes/DemoCode/Python/ex5.py",
+		"/C/github/ekepes/DemoCode/Python/ex4.py",
+		"/C/tmp/ang/index.html",
+		"/C/github/angular/angular-phonecat/npm-debug.log",
+		"/C/github/ekepes/ProjectEuler/clojure-euler/src/clojure_euler/problem_2.clj",
+		"/C/github/ekepes/ProjectEuler/clojure-euler/src/clojure_euler/problem_1.clj",
+		"/C/github/ekepes/ProjectEuler/clojure-euler/src/clojure_euler/core.clj",
+		"/C/tfs/SupplyChain.Web/trunk/source/MAI.SupplyChain.Web/Web.config",
+		"/C/github/ekepes/ProjectEuler/Problems/Problems/Utilities/PrimeFactorCalculator.cs",
+		"/C/github/ekepes/ProjectEuler/Problems/Problems/ProblemTwo.cs",
+		"/C/github/ekepes/ProjectEuler/Problems/Problems/Utilities/FibonacciSeriesCalculator.cs",
+		"/C/Users/kepeseri/AppData/Roaming/Sublime Text 2/Packages/SublimeREPL/config/Clojure/Main.sublime-menu",
+		"/C/github/ekepes/ProjectEuler/clojure-euler/project.clj",
+		"/C/tmp/my-stuff/test/my_stuff/core_test.clj",
+		"/C/tmp/seven-languages/src/seven_languages/compass.clj",
+		"/C/tmp/my-stuff/README.md",
+		"/C/tmp/my-stuff/project.clj",
+		"/C/Tools/clojure.bat",
+		"/C/Users/kepeseri/AppData/Roaming/Sublime Text 2/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/C/Users/kepeseri/AppData/Roaming/Sublime Text 2/Packages/SublimeREPL/config/Erlang/Default.sublime-commands",
+		"/C/Users/kepeseri/AppData/Roaming/Sublime Text 2/Packages/SublimeREPL/config/Erlang/Main.sublime-menu",
+		"/C/Users/kepeseri/AppData/Roaming/Sublime Text 2/Packages/SublimeREPL/README.md",
+		"/E/TWGoA/go-agent-launcher.log",
+		"/E/TWGoA/go-agent.log",
+		"/E/TWGoA/go-agent-stderr.log",
+		"/E/TWGoA/go-agent-bootstrapper.log",
+		"/E/TWGoA/go-agent-stdout.log",
+		"/E/TWGoA/go-agent-launcher.log.1",
+		"/E/TWGoA/config/guid.txt",
+		"/E/TWGoA/config/wrapper-agent.conf",
+		"/E/TWGoA/config/trust.jks",
+		"/E/TWGoA/config/agent.jks",
+		"/C/Users/kepeseri/.gitconfig",
+		"/E/TWGoA/default.cruise-agent",
+		"/C/Users/kepeseri/Dropbox/Presentations/Breaking Down Complex Systems with RabbitMQ.txt",
+		"/C/github/ekepes/Presentations/BreakingDownComplexSystemswithRabbitMQ/MultipleBackgroundWorkerDemo/MultipleBackgroundWorkerDemo.sln",
+		"/C/github/ekepes/DemoCode/.gitignore",
+		"/C/github/ekepes/Presentations/.gitignore",
+		"/C/github/ekepes/Presentations/BreakingDownComplexSystemswithRabbitMQ/PubSubFanoutDemo/PubSubFanoutDemo.sln",
+		"/C/github/ekepes/Presentations/BreakingDownComplexSystemswithRabbitMQ/Notes.txt",
+		"/E/POC/RabbitDeserializeExample/RabbitDeserializeExample/Program.cs",
+		"/C/github/ekepes/DemoCode/Rabbits/Rabbits.sln",
+		"/C/github/ekepes/DemoCode/RabbitDeserializeExample/RabbitDeserializeExample.sln",
+		"/C/tfs/ACE/BillingReports/trunk/source/MAI.ACE.BillingReports.sln",
+		"/C/tfs/ACE/DataWarehouseFeeder/trunk/BuildProperties.resx",
+		"/C/tfs/ACE/BillingReports/trunk/Build.proj",
+		"/C/tfs/ACE/BillingReports/trunk/db/Main Scripts/Installation/Verify Script/Export_Validation_Data.sql"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"maivm",
+			"tfs",
+			"sql"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "ex19.py",
+					"settings":
+					{
+						"buffer_size": 674,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								674,
+								674
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "ex20.py",
+					"settings":
+					{
+						"buffer_size": 562,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								175,
+								175
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 41.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "ex21.py",
+					"settings":
+					{
+						"buffer_size": 689,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								563,
+								563
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "ex24.py",
+					"settings":
+					{
+						"buffer_size": 914,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								913,
+								913
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "test.txt",
+					"settings":
+					{
+						"buffer_size": 44,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								44,
+								44
+							]
+						],
+						"settings":
+						{
+							"auto_name": "This is line 1",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

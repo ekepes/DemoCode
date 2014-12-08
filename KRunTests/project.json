@@ -1,0 +1,21 @@
+{
+	"dependencies": {
+  		"Xunit.KRunner": "1.0.0-alpha3"
+	},
+	"commands": {
+    	"test": "Xunit.KRunner"
+	},
+	"frameworks": {
+		"net451": {
+			"dependencies": {}
+		},
+		"k10": {
+			"dependencies": {
+				"System.Runtime": "4.0.20.0"
+			}
+		}
+	}
+	"configurations": {
+	  "Sample": {}
+	}
+}

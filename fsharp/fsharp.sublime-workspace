@@ -1,0 +1,234 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Kulture/ASP.NET.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"k",
+				"Run K Commands"
+			],
+			[
+				"K",
+				"Run K Commands"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os; pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/github/ekepes/DemoCode/fsharp"
+	],
+	"file_history":
+	[
+		"/C/tmp/lt-cljs-tutorial.cljs",
+		"/C/Users/kepeseri/Documents/Visual Studio 2013/Projects/XmlDocExample/XmlDocExample/bin/Debug/XmlDocExample.XML",
+		"/C/Users/kepeseri/Documents/Visual Studio 2013/Projects/XmlDocExample/Working/reflection.xml",
+		"/C/Users/kepeseri/Documents/Visual Studio 2013/Projects/XmlDocExample/XmlDocExample.shfbproj",
+		"/C/tfs/ACE/OrgDirectory/trunk/source/MAI.ACE.OrgDirectory.nunit",
+		"/C/tfs/ACE/Formulary/trunk/source/packages/repositories.config",
+		"/C/tfs/ACE/Formulary/trunk/source/MAI.ACE.Formulary/packages.config",
+		"/C/Program Files/PostgreSQL/9.4/pg_env.bat",
+		"/C/Users/kepeseri/Downloads/download",
+		"/C/Users/kepeseri/.gitconfig",
+		"/C/Users/kepeseri/Downloads/kafka_2.10-0.8.1.1/bin/kafka-run-class.sh",
+		"/C/tmp/kafka_2.10-0.8.1.1/config/zookeeper.properties",
+		"/C/Users/kepeseri/Dropbox/Codemash 2015/Friday 0830.md",
+		"/C/github/ekepes/DemoCode/fsharp/chart.fsx",
+		"/C/github/ekepes/DemoCode/fsharp/echo.fsx",
+		"/C/github/ekepes/DemoCode/fsharp/hello.fsx",
+		"/C/github/ekepes/fsmud/src/mudsrv/Program.fs",
+		"/C/github/ekepes/fsmud/main.fs",
+		"/C/tmp/aspNetConsoleApp/project.json",
+		"/C/tmp/aspNetConsoleApp/program.cs",
+		"/C/github/YoloDev/YoloDev.FSharp.AspNet/global.json",
+		"/C/github/YoloDev/YoloDev.FSharp.AspNet/src/YoloDev.FSharp.AspNet/YoloDev.FSharp.AspNet.kproj",
+		"/C/github/YoloDev/YoloDev.FSharp.AspNet/src/YoloDev.FSharp.AspNet/project.json",
+		"/C/Users/kepeseri/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/kepeseri/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/github/ekepes/fsmud/README.md",
+		"/C/github/ekepes/fsmud/docs/Post0001.MD",
+		"/C/github/ekepes/fsmud/artifacts/.keep",
+		"/C/github/mastoj/FsCQRSShop/.gitignore",
+		"/C/Program Files (x86)/Git/bin/git-flow",
+		"/C/tfs/Connect-Rx DB/trunk/Build.proj",
+		"/C/tfs/CRX/trunk/resource/Build/AutomatedTests.proj",
+		"/C/Users/kepeseri/Dropbox/Presentations/Intro to NHibernate/CashRegisterDemo/bin/Debug/NHibernate.xml",
+		"/C/tmp/LogExperiments.log",
+		"/C/tfs/SupplyChain.Web/trunk/source/MAI.SupplyChain.Web/Global.asax.cs",
+		"/C/tfs/SupplyChain.Web/trunk/source/MAI.SupplyChain.Web/MAI.SupplyChain.Web.Logging.config",
+		"/C/tfs/SupplyChain.Web/trunk/source/MAI.SupplyChain.Web/Web.config",
+		"/C/tfs/SupplyChain.Web/trunk/source/MAI.SupplyChain.Web/Web.Release.config",
+		"/C/tfs/SupplyChain.Web/trunk/source/MAI.SupplyChain.Web/Web.Debug.config",
+		"/C/Users/kepeseri/Dropbox/KeysExport.xml",
+		"/C/Users/kepeseri/AppData/Roaming/Sublime Text 3/Packages/User/C#.sublime-settings",
+		"/C/Users/kepeseri/AppData/Roaming/Sublime Text 3/Packages/OmniSharp/PrebuiltOmniSharpServer/config.json",
+		"/C/tmp/MonoHelloWorld/project.json",
+		"/C/Users/kepeseri/AppData/Roaming/Sublime Text 3/Packages/OmniSharp/OmniSharpSublime.sublime-settings",
+		"/C/tmp/MonoHelloWorld/Main.cs",
+		"/C/Users/kepeseri/Dropbox/SublimeTextLicense.txt"
+	],
+	"find":
+	{
+		"height": 32.0
+	},
+	"find_in_files":
+	{
+		"height": 108.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"fitnesse",
+			"visual studio"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 45.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 184.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.variable_get":
+	{
+		"height": 0.0
+	},
+	"project": "fsharp.sublime-project",
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

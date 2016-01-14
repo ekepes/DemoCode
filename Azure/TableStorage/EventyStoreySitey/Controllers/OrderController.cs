@@ -18,13 +18,13 @@ namespace EventyStoreySitey.Controllers
             return _repository.GetAggregate<Order>(HardCodedTenantIdForPoc, id);
         }
 
-        public HttpResponseMessage Post([FromBody] Customer customer)
+        public HttpResponseMessage Post([FromBody] CreateNewCustomer createNewCustomer)
         {
-            var aggregateId = DateTimeOffset.UtcNow.ToString("yyyyMMddhhmmssffffff");
+            var aggregateId = Guid.NewGuid().ToString();
             var orderStarted = new OrderStarted
                                             {
                                                 AggregateId = aggregateId, 
-                                                CustomerName = customer.CustomerName
+                                                CustomerName = createNewCustomer.CustomerName
                                             };
             _repository.StoreEvent<Order>(HardCodedTenantIdForPoc, orderStarted);
 

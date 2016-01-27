@@ -16,6 +16,11 @@ namespace FeatureTogglesThoughtExperiment
                 DoNewThing,
                 DoOldThing);
 
+            switcher.ChoosePath(feature,
+                DoNewThing,
+                DoOldThing,
+                "Eric");
+
             Console.WriteLine("Done.");
             Console.ReadLine();
         }
@@ -28,6 +33,16 @@ namespace FeatureTogglesThoughtExperiment
         private static void DoOldThing()
         {
             Console.WriteLine("Doing old thing");
+        }
+
+        private static void DoNewThing(string name)
+        {
+            Console.WriteLine("Doing new thing with {0}", name);
+        }
+
+        private static void DoOldThing(string name)
+        {
+            Console.WriteLine("Doing old thing with {0}", name);
         }
     }
 
@@ -69,6 +84,21 @@ namespace FeatureTogglesThoughtExperiment
             else
             {
                 enabledAction();
+            }
+        }
+
+        public void ChoosePath<T>(string feature,
+            Action<T> enabledAction,
+            Action<T> disabledAction,
+            T value)
+        {
+            if (!_flags.ContainsKey(feature) || !_flags[feature])
+            {
+                disabledAction(value);
+            }
+            else
+            {
+                enabledAction(value);
             }
         }
     }

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApiSwashbuckle</name>
+    </assembly>
+    <members>
+        <member name="T:WebApiSwashbuckle.Controllers.BooksController">
+            <summary>
+            The Books resource represents the collection of books contained
+            in the library.
+            </summary>
+        </member>
+        <member name="M:WebApiSwashbuckle.Controllers.BooksController.Get">
+            <summary>
+            Retrieve the entire catalog of books in the library.
+            </summary>
+            <returns>An list of all of the books.</returns>
+        </member>
+        <member name="M:WebApiSwashbuckle.Controllers.BooksController.Get(System.Int32)">
+            <summary>
+            Retrieve a single book, based on it's id.
+            </summary>
+            <param name="id">The integer identifying the book.</param>
+            <returns>The proper book.</returns>
+        </member>
+        <member name="M:WebApiSwashbuckle.Controllers.BooksController.Post(WebApiSwashbuckle.Models.Book)">
+            <summary>
+            Adds a new book to the library.
+            </summary>
+            <param name="book">The book to add.</param>
+        </member>
+        <member name="M:WebApiSwashbuckle.Controllers.BooksController.Put(System.Int32,WebApiSwashbuckle.Models.Book)">
+            <summary>
+            Replace a book in the library.
+            </summary>
+            <param name="id">The id of the book to replace.</param>
+            <param name="book">The book that will replace the current one.</param>
+        </member>
+        <member name="M:WebApiSwashbuckle.Controllers.BooksController.Delete(System.Int32)">
+            <summary>
+            Remove a book from the library.
+            </summary>
+            <param name="id">The id of the book to remove.</param>
+        </member>
+    </members>
+</doc>

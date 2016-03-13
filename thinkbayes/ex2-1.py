@@ -1,6 +1,11 @@
 from thinkbayes import Suite
     
 class Cookie(Suite):
+    '''
+    At the start:
+    Bowl 1 has 30 vanilla and 10 chocolate
+    Bowl 2 has 20 vanilla and 20 chocolate
+    '''
     mixes = {
         'Bowl 1':dict(vanilla=0.75, chocolate=0.25),
         'Bowl 2':dict(vanilla=0.5, chocolate=0.5),

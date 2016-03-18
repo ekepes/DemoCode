@@ -1,9 +1,16 @@
 class Set:
   def __init__(self):
-    self.empty = True
+    self.mylist = list()
 
   def isEmpty(self):
-    return self.empty
+    return len(self.mylist) == 0
 
   def add(self, item):
-    self.empty = False
+    if not self.contains(item):
+      self.mylist.append(item)
+
+  def contains(self, item):
+    return item in self.mylist
+
+  def size(self):
+    return len(self.mylist)

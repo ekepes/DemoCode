@@ -1,2 +1,3 @@
 class Set:
-  pass
+  def isEmpty(this):
+    return True

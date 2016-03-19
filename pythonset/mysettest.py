@@ -36,5 +36,13 @@ class SetTests(unittest.TestCase):
     set.clear()
     self.assertEqual(set.size(), 0)
 
+  def test_remove_removes_the_item(self):
+    set = Set()
+    set.add("One")
+    set.add("Two")
+    set.remove("One")
+    self.assertEqual(set.contains("One"), False)
+    self.assertEqual(set.contains("Two"), True)
+
 if __name__ == '__main__':
   unittest.main()

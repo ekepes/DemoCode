@@ -17,3 +17,6 @@ class Set:
 
   def clear(self):
     self.mylist.clear()
+
+  def remove(self, item):
+    self.mylist.remove(item)

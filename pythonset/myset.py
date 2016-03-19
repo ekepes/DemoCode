@@ -14,3 +14,6 @@ class Set:
 
   def size(self):
     return len(self.mylist)
+
+  def clear(self):
+    self.mylist.clear()

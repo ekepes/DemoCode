@@ -29,7 +29,7 @@ class SetTests(unittest.TestCase):
     set.add("One")
     self.assertEqual(set.size(), 1)
 
-  det test_clear_removes_all_items_from_the_set(self):
+  def test_clear_removes_all_items_from_the_set(self):
     set = Set()
     set.add("One")
     set.add("Two")

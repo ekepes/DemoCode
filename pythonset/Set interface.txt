@@ -21,3 +21,5 @@ Returns the number of elements in the collection
 
 Notes:
 * Sets are not ordered
+* Sets do not have multiple instances of the same value (i.e. a value can only be added once)
+* Adding a value a second time is ignored, not an error.

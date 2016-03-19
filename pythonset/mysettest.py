@@ -44,5 +44,15 @@ class SetTests(unittest.TestCase):
     self.assertEqual(set.contains("One"), False)
     self.assertEqual(set.contains("Two"), True)
 
+  def test_can_iterate_through_the_set(self):
+    set = Set()
+    set.add("One")
+    set.add("Two")
+    set.add("Three")
+    iterations = 0
+    for item in set.iterator():
+      iterations += 1
+    self.assertEqual(iterations, 3)
+
 if __name__ == '__main__':
   unittest.main()

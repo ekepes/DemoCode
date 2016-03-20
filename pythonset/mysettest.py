@@ -54,5 +54,18 @@ class SetTests(unittest.TestCase):
       iterations += 1
     self.assertEqual(iterations, 3)
 
+  def test_can_iterate_through_the_set_and_get_each_item(self):
+    set = Set()
+    set.add(1)
+    set.add(2)
+    set.add(3)
+    iterations = 0
+    total = 0
+    for item in set.iterator():
+      iterations += 1
+      total += item
+    self.assertEqual(iterations, 3)
+    self.assertEqual(total, 6)
+
 if __name__ == '__main__':
   unittest.main()

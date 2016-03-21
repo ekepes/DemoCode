@@ -1,4 +1,6 @@
 def encode(input_string):
+    if not input_string:
+        return []
     count = 1
     prev = ''
     lst = []

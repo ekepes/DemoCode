@@ -1,11 +1,13 @@
 from hypothesis import given, example
 from hypothesis.strategies import text
 from coder import encode, decode
+import unittest
 
-@given(text())
-@example('')
-def test_decode_inverts_encode(s):
+class TestEncoding(unittest.TestCase):
+  @given(text())
+  @example('')
+  def test_decode_inverts_encode(self, s):
     assert decode(encode(s)) == s
 
 if __name__ == '__main__':
-    test_decode_inverts_encode()
+  unittest.main()

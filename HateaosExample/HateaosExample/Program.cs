@@ -4,6 +4,7 @@ using Microsoft.Owin.Hosting;
 
 namespace HateaosExample
 {
+    // Source: http://pracujlabs.io/2015/04/30/becoming-hateoas-with-webapi.html
     internal class Program
     {
         private static void Main()
